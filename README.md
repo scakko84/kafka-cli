@@ -46,3 +46,19 @@ Read all messages from topic first_topic
 ```console
 kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
 ```
+
+Read new messages from topic first_topic as consumer group first-application
+> Each consumer within a consumer group reads from an exclusive partition
+> 
+> If more consumer than partitions are created, some consumers will be inactive
+```console
+kafka-console-consumer --bootstrap-server localhost:9092 --group first-application
+```
+
+Read all messages from topic first_topic as consumer group second-application
+> each consumer within a consumer group reads from an exclusive partion
+> 
+> if more consumer than partitions are created, some consumers will be inactive
+```console
+kafka-console-consumer --bootstrap-server localhost:9092 --group second-application --from-beginning
+```
