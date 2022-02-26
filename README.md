@@ -62,3 +62,35 @@ Read all messages from topic first_topic as consumer group second-application
 ```console
 kafka-console-consumer --bootstrap-server localhost:9092 --group second-application --from-beginning
 ```
+
+## kafka-consumer-groups
+
+List consumer groups
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --list
+```
+
+Describe consumer group named first-application
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group first-application
+```
+
+Resets the offset of consumer group first-application for all topics to the earliest message
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --group first-application --reset-offsets --all-topics --to-earliest --execute
+```
+
+Resets the offset of consumer group first-application for topic first_topic to the earliest message
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --group first-application --topic first_topic --to-earliest --execute
+```
+
+Shifts forward by 10 the offset of consumer group first-application for topic first_topic
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --group first-application --topic first_topic --shift-by 10 --execute
+```
+
+Shifts backward by 10 the offset of consumer group first-application for topic first_topic
+```console
+kafka-consumer-groups --bootstrap-server localhost:9092 --group first-application --topic first_topic --shift-by -10 --execute
+```
