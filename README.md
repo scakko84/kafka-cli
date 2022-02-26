@@ -25,12 +25,24 @@ kafka-topics --bootstrap-server localhost:9092 --topic first_topic --delete
 
 ## kafka-console-producer
 
-Produce events on topic first_topic (Ctrl-C to end)
+Produce messages on topic first_topic (Ctrl-C to end)
 ```console
 kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic
 ```
 
-Produce events on topic first_topic with an all-acknowledgement policy (explicit acknowledge from all partitions needed on write) (Ctrl-C to end)
+Produce messages on topic first_topic with an all-acknowledgement policy (explicit acknowledge from all partitions needed on write) (Ctrl-C to end)
 ```console
 kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic --producer-property acks=all
+```
+
+## kafka-console-consumer
+
+Read new messages from topic first_topic
+```console
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic
+```
+
+Read all messages from topic first_topic
+```console
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
 ```
